@@ -11,15 +11,15 @@ import shutil
 
 def handleArchives(archives):
 	os.mkdir('tmpdir')  
-    for arch in archives:
-    	if arch.png:
-   			with open("tmpdir/"+str(arch.saveAs)+'.png', "wb") as f:
-				f.write(arch.graph)
+	for arch in archives:
+		if arch.png:
+			with open("tmpdir/"+str(arch.saveAs)+'.png', "wb") as f:
+			f.write(arch.graph)
 		if arch.xls:
 			with open("tmpdir/"+str(arch.saveAs)+'.xls', "wb") as f:
-				f.write(arch.excel)			       
-    shutil.make_archive('attachments','zip','tmpdir')  
-    return 'attachments.zip'
+			f.write(arch.excel)			       
+	shutil.make_archive('attachments','zip','tmpdir')  
+	return 'attachments.zip'
 
 
 class EmailSender:
@@ -54,20 +54,20 @@ class EmailSender:
 		if not self.connected:
 			self.connect()
 		msg = MIMEMultipart()
-	    msg["From"]=self.emailer.user
-	    msg["To"]=",".join(receivers)
-	    msg["Subject"] = "Detective Emailer"
-	    body = str(len(archives)) + " Items from "+self.username
-	    msg.attach(MIMEText(body,'plain'))
-	    zip_file=handleArchives(self.archives)
-	    attachment = open(handleArchives(self.archives),'rb')
-	    part = MIMEBase('application','octet-stream')
-	    part.set_payload((attachment).read())
-	    encoders.encode_base64(part)
-	    part.add_header('Content-Disposition',"attachment; filename= "+zip_file)
-	    msg.attach(part)
-	    self.content = msg.as_string()
-	    os.rmdir('tmpdir/')
+		msg["From"]=self.emailer.user
+		msg["To"]=",".join(receivers)
+		msg["Subject"] = "Detective Emailer"
+		body = str(len(archives)) + " Items from "+self.username
+		msg.attach(MIMEText(body,'plain'))
+		zip_file=handleArchives(self.archives)
+		attachment = open(handleArchives(self.archives),'rb')
+		part = MIMEBase('application','octet-stream')
+		part.set_payload((attachment).read())
+		encoders.encode_base64(part)
+		part.add_header('Content-Disposition',"attachment; filename= "+zip_file)
+		msg.attach(part)
+		self.content = msg.as_string()
+		os.rmdir('tmpdir/')
 
 	def sendEmail(self,receivers):
 		if self.connected:    
