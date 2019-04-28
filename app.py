@@ -35,6 +35,6 @@ api.add_resource(Graph,'/graph')
 
 
 if __name__ == '__main__':
-    from db import db
-    db.init_app(app)
-    app.run(port=5000)
+	from db import db
+	db.init_app(app)
+	app.run(port=5000)

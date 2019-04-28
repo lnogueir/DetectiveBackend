@@ -25,6 +25,7 @@ class GraphModel(db.Model):
 		self.excel=processedFile(filename+'.xls')
 		os.remove(filename+'.png')
 		os.remove(filename+'.xls')
+		
 
 	def json(self):
 		return {'filename':self.filename,'saveAs':self.saveAs}
