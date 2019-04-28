@@ -6,6 +6,7 @@ from resources.users import UserRegister,User
 from resources.tags import Tag,Tags
 from resources.topic import Topic,TopicList
 from resources.graph import Graph
+from resources.emailer import Email
 
 
 app = Flask(__name__)
@@ -30,6 +31,7 @@ api.add_resource(TopicList,'/topics/<string:topic_name>')
 api.add_resource(Tag,'/tag/<int:topic_id>/<string:keyword>')
 api.add_resource(Tags,'/tags/<int:topic_id>')
 api.add_resource(Graph,'/graph')
+api.add_resource(Email,'/email/<string:username>')
 
 
 
