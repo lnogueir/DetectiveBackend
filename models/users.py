@@ -9,6 +9,7 @@ class UserModel(db.Model):
     email=db.Column(db.String(80))
     topics=db.relationship('TopicModel')
     graphs=db.relationship('GraphModel')
+    friends=db.relationship('FriendModel')
 
     def __init__(self,username,password,email):
         self.username=username

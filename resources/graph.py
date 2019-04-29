@@ -60,14 +60,13 @@ class Graph(Resource):
 
 	def put(self):
 		body = Graph.parser.parse_args()
-		print(body)
 		# print(body['saveAs'])
 		graphs = GraphModel.find_by_username(body['username'])
 		if graphs:
 			for i,graph in enumerate(graphs):
 				newName = body['saveAs'][i]
 				if newName !='' and newName!=None:
-					graph.saveAs = body['saveAs'][i]
+					graph.saveAs = newName
 					graph.save_to_db()
 			return {'message':'Graphs saved'}
 		return {'message':'User not found'}, 404		

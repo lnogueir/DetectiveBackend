@@ -17,7 +17,6 @@ class GraphModel(db.Model):
 	excel=db.Column(db.LargeBinary)	
 
 	def __init__(self,filename,username):
-		print(filename)
 		self.filename=filename
 		self.username=username
 		self.saveAs=None 
