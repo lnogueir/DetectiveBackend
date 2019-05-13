@@ -62,14 +62,6 @@ def getMaxValDic(dic):
             maximum_key = keys
     return maximum_key  
 
-# def getRightId(username):
-# 	user = UserModel.find_by_username(username)
-# 	if user:
-# 		scrapper_id=len(UserModel.find_by_username(username).graphs) + 1
-# 		return scrapper_id
-# 	else:	
-# 		raise Exception()	
-
 class Scrapper(db.Model):
 	__tablename__='scrappers'
 	scrapper_id=db.Column(db.Integer,primary_key=True)
@@ -96,7 +88,7 @@ class Scrapper(db.Model):
 			validStr = str(clean_content).lower()
 			for keys in self.user_map:
 				for values in self.user_map[keys]:
-					self.topic_points[keys] += validStr.count(values['keyword'].lower())	
+					self.topic_points[keys] += validStr.count(values['keyword'].lower())*values['weight']	
 		else:
 			print('Error reading URL')		
 
