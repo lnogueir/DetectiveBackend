@@ -8,7 +8,7 @@ from resources.topic import Topic,TopicList
 from resources.graph import Graph
 from resources.emailer import Email
 from resources.friends import Friend
-
+from ip import ip
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -41,4 +41,4 @@ api.add_resource(Friend,'/friend/<string:username>')
 if __name__ == '__main__':
 	from db import db
 	db.init_app(app)
-	app.run(port=5000)
+	app.run(port=5000,host=ip())
