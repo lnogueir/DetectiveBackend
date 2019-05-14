@@ -3,7 +3,7 @@
 ## Introduction
 This application was based on the projects designed by Professor Sapienza from URFJ and originally all in python.
 I compiled most Sapienza's proposed Python first year projects into one. Initially this was was a tkinter application, since this was the library proposed by the Prof, but I've created a new version using React Native for the front end.
-Besides that, I have also modified the way I store the data, however still using Python libraries, instead of saving it as file system, I switched to database system for the backend. Code for the backend available [here](https://github.com/lnogueir/DetectiveFrontend).
+Besides that, I have also modified the way I store the data, however still using Python libraries, instead of saving it as file system, I switched to database system for the backend. Code for the frontend available [here](https://github.com/lnogueir/DetectiveFrontend).
 
 ## What it does:
 This app is supposed to interact with the users:

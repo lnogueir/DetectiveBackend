@@ -1,2 +1,7 @@
 #ignore file with gmail information
 /models/EmailAccount.py
+
+#ignore my ip
+ip.py
+
+__pycache__
