@@ -1,6 +1,5 @@
 from models.users import UserModel
-from collections import defaultdict
-from collections import OrderedDict
+from collections import defaultdict, OrderedDict
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
